@@ -10,6 +10,12 @@
             active: background-color : red;
         }
 
+        .button:disabled{
+            background: #999;
+            color: #555;
+            cursor: default;
+        }
+
         .button:active {
 
             -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
@@ -112,7 +118,7 @@
 <body>
 <h1>Bowling Game</h1>
 <input type="text" id="pins"> <br>
-<input onclick="getInputAndRollIt()" type="button" id="button" class="button" value="Roll it!"><br>
+<button onclick="getInputAndRollIt()" id="button" class="button" disabled = "disabled">Roll it!</button>
 
 <div class="mainDiv">
     <h3>Score</h3>
@@ -126,6 +132,30 @@
 
 <script>
     pins = document.getElementById("pins");
+    button = document.getElementById("button");
+    pins.addEventListener("keydown", pinsListener, false);
+
+    function pinsListener(event){
+        var reg = new RegExp("[0-9]");
+        if(event.keyCode == 8){
+            button.disabled = "disabled";
+        }
+        if(reg.exec(String.fromCharCode(event.keyCode))){
+            var value = parseInt(pins.value + String.fromCharCode(event.keyCode)),
+                    to = 10;
+            if(!(logic.firstRoll) && logic.rolls[logic.currentRoll-1] != null){
+                to = 10 - logic.rolls[logic.currentRoll-1];
+                console.log(to);
+            }
+
+            if(value <= to && value >= 0){
+                button.disabled = "";
+            }
+            else{
+                button.disabled = "disabled";
+            }
+        }
+    }
     g = new Game();
     logic = new LogicalVariables();
 
@@ -137,11 +167,16 @@
         this.lastLeftPosition = -60;
         this.lastTopPosition = 82;
         this.frameScore = new Array();
+        this.pendingStrikeOrSpareEvents = new Array();
+        this.resultContainerWithListener = new Array();
     }
 
     function getInputAndRollIt() {
         g.roll(pins.value);
         paintRoll();
+        pins.removeEventListener("keypress", pinsListener, false);
+        pins.addEventListener("keypress", pinsListener, false);
+        button.disabled = "disabled";
 
     }
 
@@ -226,18 +261,36 @@
     }
 
     function paintRoll() {
-        var components = new ComponentsContainer();
+        var components = new ComponentsContainer(),
+                i = 0;
+
+
 
         if (logic.firstRoll) {
             var resultContainer = components.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
                     outterContainer = components.outterContainer;
             outterContainer.appendChild(resultContainer);
+            resultContainer.twoRollsHappen = logic.currentFrame + 3;
             if (pins.value == "10") {
                 var strikeResult = components.strikeResult,
-                        outters = components.outters();
+                        outters = components.outters(),
+                        strikeEvent = document.createEvent("Event");
                 outters[logic.currentFrame].appendChild(strikeResult);
                 logic.rolls[logic.currentRoll++] = parseInt(pins.value);
-                logic.frameScore[logic.currentFrame] = parseInt(pins.value);
+                logic.frameScore[logic.currentFrame++] = parseInt(pins.value);
+                resultContainer.addEventListener("bonus",function bonus(){
+                                if(resultContainer.twoRollsHappen == logic.currentRoll){
+                                    var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll-1]
+                                            + logic.rolls[logic.currentRoll-2]);
+                                    totalScore.style.top = "0px";
+                                    resultContainer.appendChild(totalScore);
+                                    resultContainer.removeEventListener("bonus", strikeBonus, false);
+                                }
+                },false)
+                strikeEvent.initEvent("bonus", true, true);
+                logic.pendingStrikeOrSpareEvents[logic.currentFrame] = strikeEvent;
+                logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
+
             } else {
                 var firstResult = components.firstResult(pins.value),
                         rightCorner = components.rightCorner,
@@ -253,22 +306,50 @@
 
             if (parseInt(pins.value) + logic.rolls[logic.currentRoll - 1] == 10) {
                 var spareResult = components.spareResult,
-                        oldRightCorner = components.rightCorners()[logic.currentFrame];
+                        oldRightCorner = components.rightCorners()[logic.currentFrame],
+                        resultContainer = components.outters()[logic.currentFrame],
+                        spareEvent = document.createEvent("Event");
+                resultContainer.oneRollHappen = logic.currentRoll +2;
                 spareResult.style.top = "-19px";
                 oldRightCorner.parentNode.replaceChild(spareResult, oldRightCorner);
+                logic.rolls[logic.currentRoll] = parseInt(pins.value);
                 logic.frameScore[logic.currentFrame] = 10;
+                resultContainer.addEventListener("bonus",function bonus(){
+                    if(resultContainer.oneRollHappen == logic.currentRoll){
+                        var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll-1]);
+                        totalScore.style.top = "0px";
+                        resultContainer.appendChild(totalScore);
+                        resultContainer.removeEventListener("bonus", bonus, false);
+                    }
+                },false);
+                spareEvent.initEvent("bonus", true,true);
+                logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
+                logic.pendingStrikeOrSpareEvents[logic.currentFrame] = spareEvent;
             }else{
                 var rightCorner = components.rightCorner,
                         rightCornerWithsecondResult = components.singleSecondResult(rightCorner, pins.value),
-                        oldRightCorner = components.rightCorners()[logic.currentFrame];
+                        oldRightCorner = components.rightCorners()[logic.currentFrame],
+                        totalScore = components.totalResultContainer(logic.rolls[logic.currentRoll-1] + parseInt(pins.value)),
+                        outters = components.outters();
                 rightCornerWithsecondResult.style.top = "-19px";
+                totalScore.style.top = "0px";
                 oldRightCorner.parentNode.replaceChild(rightCornerWithsecondResult, oldRightCorner);
+                outters[logic.currentFrame].appendChild(totalScore);
+                logic.rolls[logic.currentRoll] = parseInt(pins.value);
                 logic.frameScore[logic.currentFrame] = logic.rolls[logic.currentRoll-1] + parseInt(pins.value);
+
+
             }
 
             logic.currentFrame++;
             logic.currentRoll++;
             logic.firstRoll = true;
+        }
+
+        for(i = 0; i<logic.pendingStrikeOrSpareEvents.length; i++){
+            if(!(logic.resultContainerWithListener[i] == null)){
+                logic.resultContainerWithListener[i].dispatchEvent(logic.pendingStrikeOrSpareEvents[i]);
+            }
         }
     }
 
@@ -276,7 +357,7 @@
 </script>
 
 <script>
-    /*var ca = new ComponentsContainer();
+    var ca = new ComponentsContainer();
 
     testPaintResultContainer: (function () {
         var resultContainer = ca.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
@@ -338,7 +419,42 @@
         var outters = ca.outters(),
                 totalScore = ca.totalResultContainer(9);
         outters[0].appendChild(totalScore);
-    });*/
+    });
+
+    testResultListenerForStrike: (function(){
+        var resultContainer = ca.resultContainer(logic.lastLeftPosition, logic.lastTopPosition);
+        resultContainer.twoRollsHappen = logic.currentFrame;
+        resultContainer.addEventListener("strikeBonus",function(){
+            if(resultContainer.twoRollsHappen == logic.currentFrame){
+                var totalScore = ca.totalResultContainer(20),
+                        outterContainer = ca.outterContainer;
+                totalScore.style.top = "30px";
+                resultContainer.appendChild(totalScore);
+                outterContainer.appendChild(resultContainer);
+            }
+        },false);
+        strikeEvent = document.createEvent("Event");
+        strikeEvent.initEvent("strikeBonus", true, true);
+        resultContainer.dispatchEvent(strikeEvent);
+    });
+
+    testValidatePinsValue: (function(){
+        pins.addEventListener("keypress", function(event){
+                   var reg = new RegExp("[0-9]");
+            if(reg.exec(String.fromCharCode(event.keyCode))){
+                var value = parseInt(pins.value + String.fromCharCode(event.keyCode));
+                console.log(value);
+                if(value <= 10 && value >= 0){
+                console.log("is a valid number!");
+                }
+            else{
+                console.log("is not a valid number!");
+            }
+            }
+        }, false);
+    })();
+
+
 
 
 </script>

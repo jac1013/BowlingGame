@@ -7,7 +7,7 @@
     <file path="/BowlingGame.jstd" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377896305380" ignored="false" />
     <file path="/BowlingGameTest.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377705585147" ignored="false" />
     <file path="/Game.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377705618875" ignored="false" />
-    <file path="/BowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377962405505" ignored="false" />
+    <file path="/BowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377978091202" ignored="false" />
     <file path="/BowlingGameControllerTest.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895657252" ignored="false" />
     <file path="/BowlingView.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895749927" ignored="false" />
     <file path="/bowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895799152" ignored="false" />
@@ -69,7 +69,7 @@
       <file leaf-file-name="BowlingView.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BowlingView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="258" column="58" selection-start="7689" selection-end="7689" vertical-scroll-proportion="0.49438202">
+            <state line="149" column="0" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.51194537">
               <folding />
             </state>
           </provider>
@@ -107,9 +107,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="3" />
-    <option name="width" value="1346" />
-    <option name="height" value="728" />
+    <option name="x" value="683" />
+    <option name="width" value="683" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -276,7 +276,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="3" width="1346" height="728" extended-state="0" />
+    <frame x="683" y="0" width="683" height="743" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -285,7 +285,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11817502" sideWeight="0.67111856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34320557" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.49962604" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.50037396" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -468,7 +468,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BowlingView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="258" column="58" selection-start="7689" selection-end="7689" vertical-scroll-proportion="0.49438202">
+        <state line="149" column="0" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.51194537">
           <folding />
         </state>
       </provider>
