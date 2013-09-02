@@ -260,6 +260,41 @@ function ComponentsContainer() {
 
 }
 
+function paintRoll() {
+    var components = new ComponentsContainer();
+
+    if (logic.firstRoll) {
+        paintFirstRoll(components);
+    } else {
+        paintSecondRoll(components);
+    }
+    dispathBonusEventsIfExist();
+
+}
+
+function paintFirstRoll(components) {
+    var resultContainer = createAndPaintResultContainer(components);
+
+    if (isStrike()) {
+        paintStrike(components);
+        setupStrikeBonusListener(resultContainer, components);
+        logic.currentRoll++;
+        logic.currentFrame++;
+
+    } else {
+        paintSingleFirstResult(components);
+        logic.currentRoll++;
+
+    }
+}
+
+function createAndPaintResultContainer(components) {
+    var resultContainer = components.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
+            outterContainer = components.outterContainer;
+    outterContainer.appendChild(resultContainer);
+    return resultContainer;
+}
+
 function isStrike() {
     return pins.value == "10";
 }
@@ -268,11 +303,12 @@ function paintStrike(components) {
     var strikeResult = components.strikeResult,
             outters = components.outters();
     outters[logic.currentFrame].appendChild(strikeResult);
-    logic.rolls[logic.currentRoll++] = parseInt(pins.value);
+    logic.rolls[logic.currentRoll] = parseInt(pins.value);
     logic.frameScore[logic.currentFrame] = parseInt(pins.value);
 }
 
 function setupStrikeBonusListener(resultContainer, components) {
+    resultContainer.twoRollsHappen = logic.currentRoll + 3;
     resultContainer.addEventListener("strikeBonus", function strikeBonus() {
         if (twoRollsWasMade(resultContainer)) {
             var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll - 1]
@@ -282,18 +318,19 @@ function setupStrikeBonusListener(resultContainer, components) {
             resultContainer.removeEventListener("strikeBonus", strikeBonus, false);
         }
     }, false)
-    attachResultAndListener(resultContainer, document.createEvent("Event"));
-    logic.currentFrame++;
-}
+    attachResultAndStrikeListener(resultContainer);
 
-function attachResultAndListener(resultContainer, strikeEvent) {
-    strikeEvent.initEvent("strikeBonus", true, true);
-    logic.pendingStrikeOrSpareEvents[logic.currentFrame] = strikeEvent;
-    logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
 }
 
 function twoRollsWasMade(resultContainer) {
     return resultContainer.twoRollsHappen == logic.currentRoll;
+}
+
+function attachResultAndStrikeListener(resultContainer) {
+    var strikeEvent = document.createEvent("Event");
+    strikeEvent.initEvent("strikeBonus", true, true);
+    logic.pendingStrikeOrSpareEvents[logic.currentFrame] = strikeEvent;
+    logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
 }
 
 function paintSingleFirstResult(components) {
@@ -303,76 +340,83 @@ function paintSingleFirstResult(components) {
     rightCorner.style.top = "-19px";
     outters[logic.currentFrame].appendChild(firstResult).
             appendChild(rightCorner);
-    logic.rolls[logic.currentRoll++] = parseInt(pins.value);
+    logic.rolls[logic.currentRoll] = parseInt(pins.value);
     logic.firstRoll = false;
 }
 
-function paintRoll() {
-    var components = new ComponentsContainer(),
-            i = 0;
+function paintSecondRoll(components) {
+    var resultContainer = components.outters()[logic.currentFrame];
 
-    if (logic.firstRoll) {
-        var resultContainer = components.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
-                outterContainer = components.outterContainer;
-        outterContainer.appendChild(resultContainer);
-        resultContainer.twoRollsHappen = logic.currentRoll + 3;
-        if (isStrike()) {
-            paintStrike(components);
-            setupStrikeBonusListener(resultContainer, components);
+    if (isSpare()) {
+        paintSpare(resultContainer, components);
+        setupSpareBonusListener(resultContainer, components);
+        attachResultAndSpareListener(resultContainer);
 
-        } else {
-            paintSingleFirstResult(components);
-
-        }
     } else {
-
-        if (parseInt(pins.value) + logic.rolls[logic.currentRoll - 1] == 10) {
-            var spareResult = components.spareResult,
-                    oldRightCorner = components.rightCorners()[logic.currentFrame],
-                    resultContainer = components.outters()[logic.currentFrame],
-                    spareEvent = document.createEvent("Event");
-            resultContainer.oneRollHappen = logic.currentRoll + 2;
-            spareResult.style.top = "-19px";
-            oldRightCorner.parentNode.replaceChild(spareResult, oldRightCorner);
-            logic.rolls[logic.currentRoll] = parseInt(pins.value);
-            logic.frameScore[logic.currentFrame] = 10;
-            resultContainer.addEventListener("spareBonus", function spareBonus() {
-                if (resultContainer.oneRollHappen == logic.currentRoll) {
-                    var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll - 1]);
-                    totalScore.style.top = "0px";
-                    resultContainer.appendChild(totalScore);
-                    resultContainer.removeEventListener("spareBonus", spareBonus, false);
-                }
-            }, false);
-            spareEvent.initEvent("spareBonus", true, true);
-            logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
-            logic.pendingStrikeOrSpareEvents[logic.currentFrame] = spareEvent;
-        } else {
-            var rightCorner = components.rightCorner,
-                    rightCornerWithsecondResult = components.singleSecondResult(rightCorner, pins.value),
-                    oldRightCorner = components.rightCorners()[logic.currentFrame],
-                    totalScore = components.totalResultContainer(logic.rolls[logic.currentRoll - 1] + parseInt(pins.value)),
-                    outters = components.outters();
-            rightCornerWithsecondResult.style.top = "-19px";
-            totalScore.style.top = "0px";
-            oldRightCorner.parentNode.replaceChild(rightCornerWithsecondResult, oldRightCorner);
-            outters[logic.currentFrame].appendChild(totalScore);
-            logic.rolls[logic.currentRoll] = parseInt(pins.value);
-            logic.frameScore[logic.currentFrame] = logic.rolls[logic.currentRoll - 1] + parseInt(pins.value);
-
-
-        }
-
-        logic.currentFrame++;
-        logic.currentRoll++;
-        logic.firstRoll = true;
+        paintSingleSecondResult(components);
     }
 
-    for (i = 0; i < logic.pendingStrikeOrSpareEvents.length; i++) {
-        if (!(logic.resultContainerWithListener[i] == null)) {
+    logic.currentFrame++;
+    logic.currentRoll++;
+    logic.firstRoll = true;
+}
+
+function isSpare() {
+    return parseInt(pins.value) + logic.rolls[logic.currentRoll - 1] == 10;
+}
+
+function paintSpare(resultContainer, components) {
+    var spareResult = components.spareResult,
+            oldRightCorner = components.rightCorners()[logic.currentFrame];
+    resultContainer.oneRollHappen = logic.currentRoll + 2;
+    spareResult.style.top = "-19px";
+    oldRightCorner.parentNode.replaceChild(spareResult, oldRightCorner);
+    logic.rolls[logic.currentRoll] = parseInt(pins.value);
+    logic.frameScore[logic.currentFrame] = 10;
+}
+
+function setupSpareBonusListener(resultContainer, components) {
+    resultContainer.addEventListener("spareBonus", function spareBonus() {
+        if (resultContainer.oneRollHappen == logic.currentRoll) {
+            var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll - 1]);
+            totalScore.style.top = "0px";
+            resultContainer.appendChild(totalScore);
+            resultContainer.removeEventListener("spareBonus", spareBonus, false);
+        }
+    }, false);
+}
+
+function attachResultAndSpareListener(resultContainer) {
+    var spareEvent = document.createEvent("Event");
+    spareEvent.initEvent("spareBonus", true, true);
+    logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
+    logic.pendingStrikeOrSpareEvents[logic.currentFrame] = spareEvent;
+}
+
+function paintSingleSecondResult(components) {
+    var rightCorner = components.rightCorner,
+            rightCornerWithsecondResult = components.singleSecondResult(rightCorner, pins.value),
+            oldRightCorner = components.rightCorners()[logic.currentFrame],
+            totalScore = components.totalResultContainer(logic.rolls[logic.currentRoll - 1] + parseInt(pins.value)),
+            outters = components.outters();
+    rightCornerWithsecondResult.style.top = "-19px";
+    totalScore.style.top = "0px";
+    oldRightCorner.parentNode.replaceChild(rightCornerWithsecondResult, oldRightCorner);
+    outters[logic.currentFrame].appendChild(totalScore);
+    logic.rolls[logic.currentRoll] = parseInt(pins.value);
+    logic.frameScore[logic.currentFrame] = logic.rolls[logic.currentRoll - 1] + parseInt(pins.value);
+}
+
+function dispathBonusEventsIfExist() {
+    for (var i = 0; i < logic.pendingStrikeOrSpareEvents.length; i++) {
+        if (itHasBonus(i)) {
             logic.resultContainerWithListener[i].dispatchEvent(logic.pendingStrikeOrSpareEvents[i]);
         }
     }
+}
+
+function itHasBonus(i) {
+    return !(logic.resultContainerWithListener[i] == null);
 }
 
 
@@ -474,7 +518,7 @@ function paintRoll() {
                 }
             }
         }, false);
-    })();
+    });
 
 
 </script>
