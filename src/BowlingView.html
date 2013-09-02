@@ -269,25 +269,25 @@ function paintStrike(components) {
             outters = components.outters();
     outters[logic.currentFrame].appendChild(strikeResult);
     logic.rolls[logic.currentRoll++] = parseInt(pins.value);
-    logic.frameScore[logic.currentFrame++] = parseInt(pins.value);
+    logic.frameScore[logic.currentFrame] = parseInt(pins.value);
 }
 
 function setupStrikeBonusListener(resultContainer, components) {
-    var strikeEvent = document.createEvent("Event");
-    resultContainer.addEventListener("bonus", function bonus() {
+    resultContainer.addEventListener("strikeBonus", function strikeBonus() {
         if (twoRollsWasMade(resultContainer)) {
             var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll - 1]
                     + logic.rolls[logic.currentRoll - 2]);
             totalScore.style.top = "0px";
             resultContainer.appendChild(totalScore);
-            resultContainer.removeEventListener("bonus", bonus, false);
+            resultContainer.removeEventListener("strikeBonus", strikeBonus, false);
         }
     }, false)
-    attachResultAndEvent(resultContainer, strikeEvent);
+    attachResultAndListener(resultContainer, document.createEvent("Event"));
+    logic.currentFrame++;
 }
 
-function attachResultAndEvent(resultContainer, strikeEvent) {
-    strikeEvent.initEvent("bonus", true, true);
+function attachResultAndListener(resultContainer, strikeEvent) {
+    strikeEvent.initEvent("strikeBonus", true, true);
     logic.pendingStrikeOrSpareEvents[logic.currentFrame] = strikeEvent;
     logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
 }
@@ -296,32 +296,32 @@ function twoRollsWasMade(resultContainer) {
     return resultContainer.twoRollsHappen == logic.currentRoll;
 }
 
-function paintAndSetupResultContainer(components) {
-    var resultContainer = components.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
-            outterContainer = components.outterContainer;
-    outterContainer.appendChild(resultContainer);
-    resultContainer.twoRollsHappen = logic.currentFrame + 3;
-    return resultContainer;
+function paintSingleFirstResult(components) {
+    var firstResult = components.firstResult(pins.value),
+            rightCorner = components.rightCorner,
+            outters = components.outters();
+    rightCorner.style.top = "-19px";
+    outters[logic.currentFrame].appendChild(firstResult).
+            appendChild(rightCorner);
+    logic.rolls[logic.currentRoll++] = parseInt(pins.value);
+    logic.firstRoll = false;
 }
 
 function paintRoll() {
-    var components = new ComponentsContainer();
+    var components = new ComponentsContainer(),
+            i = 0;
 
     if (logic.firstRoll) {
-        var resultContainer = paintAndSetupResultContainer(components);
+        var resultContainer = components.resultContainer(logic.lastLeftPosition, logic.lastTopPosition),
+                outterContainer = components.outterContainer;
+        outterContainer.appendChild(resultContainer);
+        resultContainer.twoRollsHappen = logic.currentRoll + 3;
         if (isStrike()) {
             paintStrike(components);
             setupStrikeBonusListener(resultContainer, components);
 
         } else {
-            var firstResult = components.firstResult(pins.value),
-                    rightCorner = components.rightCorner,
-                    outters = components.outters();
-            rightCorner.style.top = "-19px";
-            outters[logic.currentFrame].appendChild(firstResult).
-                    appendChild(rightCorner);
-            logic.rolls[logic.currentRoll++] = parseInt(pins.value);
-            logic.firstRoll = false;
+            paintSingleFirstResult(components);
 
         }
     } else {
@@ -336,15 +336,15 @@ function paintRoll() {
             oldRightCorner.parentNode.replaceChild(spareResult, oldRightCorner);
             logic.rolls[logic.currentRoll] = parseInt(pins.value);
             logic.frameScore[logic.currentFrame] = 10;
-            resultContainer.addEventListener("bonus", function bonus() {
+            resultContainer.addEventListener("spareBonus", function spareBonus() {
                 if (resultContainer.oneRollHappen == logic.currentRoll) {
                     var totalScore = components.totalResultContainer(10 + logic.rolls[logic.currentRoll - 1]);
                     totalScore.style.top = "0px";
                     resultContainer.appendChild(totalScore);
-                    resultContainer.removeEventListener("bonus", bonus, false);
+                    resultContainer.removeEventListener("spareBonus", spareBonus, false);
                 }
             }, false);
-            spareEvent.initEvent("bonus", true, true);
+            spareEvent.initEvent("spareBonus", true, true);
             logic.resultContainerWithListener[logic.currentFrame] = resultContainer;
             logic.pendingStrikeOrSpareEvents[logic.currentFrame] = spareEvent;
         } else {
