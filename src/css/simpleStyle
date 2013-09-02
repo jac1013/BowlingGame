@@ -1,0 +1,110 @@
+.button {
+    min-width: 100px;
+    min-height: 50px;
+    background-color: coral;
+}
+
+.button:active {
+
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #2E5481;
+    border: solid 1px #203E5F;
+    color: white;
+}
+
+.button:disabled {
+    background: #999;
+    color: #555;
+    cursor: default;
+}
+
+.pins:disabled {
+    background: #999;
+    color: #555;
+    cursor: default;
+}
+
+.mainDiv {
+    position: relative;
+    top: 150px;
+    left: 150px;
+    width: 710px;
+    height: 200px;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.mainDiv .forOutter {
+    position: relative;
+    width: 710px;
+    height: 60px;
+
+}
+
+.mainDiv .forOutter .outter {
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 60px;
+    height: 60px;
+
+}
+
+.mainDiv .forOutter .outter .rightCornerTop {
+    position: relative;
+    height: 15px;
+    width: 29px;
+    background-color: black;
+    border-top: white;
+}
+
+.mainDiv .forOutter .outter .rightCornerTopWhite {
+    position: relative;
+    height: 15px;
+    width: 29px;
+    background-color: white;
+    border-right: black;
+
+}
+
+.mainDiv .forOutter .outter .rightCornerBot {
+    position: relative;
+    height: 15px;
+    width: 29px;
+    border-color: white;
+    background-color: black;
+}
+
+.mainDiv .forOutter .outter .rightCorner {
+    position: relative;
+    top: -20px;
+    left: 30px;
+    height: 30px;
+    width: 29px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-top: white;
+    border-right: white;
+    text-align: center;
+}
+
+.mainDiv .forOutter .outter .firstRollScore {
+    position: relative;
+    height: 31px;
+    width: 30px;
+    text-align: center;
+}
+
+.mainDiv .forOutter .outter .totalScoreContainer {
+    position: relative;
+    top: 1px;
+    height: 28px;
+    width: 60px;
+    background-color: white;
+    text-align: center;
+}

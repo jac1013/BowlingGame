@@ -4,13 +4,14 @@
     <list default="true" id="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" name="Default" comment="" />
     <ignored path="BowlingGame.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/BowlingGame.jstd" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377896305380" ignored="false" />
+    <file path="/BowlingGame.jstd" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1378149501107" ignored="false" />
     <file path="/BowlingGameTest.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377705585147" ignored="false" />
     <file path="/Game.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377705618875" ignored="false" />
-    <file path="/BowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377981600708" ignored="false" />
+    <file path="/BowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1378149259419" ignored="false" />
     <file path="/BowlingGameControllerTest.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895657252" ignored="false" />
     <file path="/BowlingView.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895749927" ignored="false" />
     <file path="/bowlingView.html" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1377895799152" ignored="false" />
+    <file path="/BowlingGameController.js" changelist="4bc14c4c-ec6c-4a16-b4a8-922e4affb89d" time="1378149151876" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
       <file leaf-file-name="BowlingGame.jstd" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BowlingGame.jstd">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="23" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+            <state line="4" column="22" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -42,25 +43,7 @@
       <file leaf-file-name="BowlingGameTest.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BowlingGameTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="51" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BowlingGameControllerTest.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/BowlingGameControllerTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="5" column="18" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,17 +52,77 @@
       <file leaf-file-name="BowlingView.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BowlingView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="312" column="28" selection-start="8796" selection-end="8796" vertical-scroll-proportion="0.4347826">
+            <state line="9" column="25" selection-start="194" selection-end="194" vertical-scroll-proportion="0.18063754">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simpleStyle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/simpleStyle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="29" selection-start="1242" selection-end="1242" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/TestView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="67" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.js">
+        <entry file="file://$PROJECT_DIR$/src/js/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="17" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
+            <state line="16" column="32" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BowlingGameController.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/BowlingGameController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="4" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputManagement.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/InputManagement.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="54" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#160#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogicalVariables.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/LogicalVariables.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="1" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#LogicalVariables#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComponentGenerator.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/ComponentGenerator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="1" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#ComponentsContainer#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,16 +143,23 @@
         <option value="$PROJECT_DIR$/js/BowlingView.js" />
         <option value="$PROJECT_DIR$/test/BowlingGameControllerTest.js" />
         <option value="$PROJECT_DIR$/js/BowlingView.html" />
-        <option value="$PROJECT_DIR$/BowlingGame.jstd" />
         <option value="$PROJECT_DIR$/test/BowlingGameTest.js" />
+        <option value="$PROJECT_DIR$/src/js/ComponentGenerator.js" />
+        <option value="$PROJECT_DIR$/src/js/LogicalVariables.js" />
+        <option value="$PROJECT_DIR$/src/js/InputManagement.js" />
+        <option value="$PROJECT_DIR$/src/js/TestView.js" />
+        <option value="$PROJECT_DIR$/src/css/simpleStyle" />
+        <option value="$PROJECT_DIR$/src/js/BowlingGameController.js" />
         <option value="$PROJECT_DIR$/src/BowlingView.html" />
+        <option value="$PROJECT_DIR$/BowlingGame.jstd" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="width" value="1372" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -125,7 +175,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -136,18 +186,73 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BowlingGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joseph\WebstormProjects\BowlingGame\src\js" />
+    </key>
   </component>
   <component name="RunManager" selected="JsTestDriver.BowlingGameTest">
     <configuration default="false" name="BowlingGameTest" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver" temporary="true">
@@ -276,16 +381,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1372" height="745" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11817502" sideWeight="0.67111856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11808118" sideWeight="0.67111856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34276205" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34184238" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.49962604" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.50037396" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -370,48 +475,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/BowlingGameTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/BowlingGameControllerTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BowlingView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="52" selection-start="7291" selection-end="7291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BowlingGame.jstd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/BowlingGameTest.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="48" selection-start="722" selection-end="722" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -431,44 +494,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameController.js">
+    <entry file="file://$PROJECT_DIR$/src/css/simpleStyle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="68" column="29" selection-start="1242" selection-end="1242" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.js">
+    <entry file="file://$PROJECT_DIR$/src/js/ComponentGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
+        <state line="86" column="1" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#ComponentsContainer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/BowlingGameControllerTest.js">
+    <entry file="file://$PROJECT_DIR$/src/js/InputManagement.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
+        <state line="10" column="54" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#160#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/LogicalVariables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="1" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#LogicalVariables#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/TestView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="67" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/BowlingGameController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="4" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BowlingGame.jstd">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+        <state line="4" column="22" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/BowlingGameTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="51" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+        <state line="5" column="18" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BowlingView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="312" column="28" selection-start="8796" selection-end="8796" vertical-scroll-proportion="0.4347826">
+        <state line="9" column="25" selection-start="194" selection-end="194" vertical-scroll-proportion="0.18063754">
           <folding />
         </state>
       </provider>

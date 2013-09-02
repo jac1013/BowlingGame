@@ -1,5 +1,5 @@
 load:
-  - src/Game.js
+  - src/js/Game.js
 
 test:
   - test/BowlingGameTest.js
