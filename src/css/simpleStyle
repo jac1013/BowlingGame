@@ -1,16 +1,33 @@
+body{
+    background: #BDE0FF;
+}
+h1, h3{
+    font-family: sans-serif;        
+    text-shadow: 4px 4px 4px #CC6633;
+    color:  #009999 
+}
+
+
 .button {
+    -webkit-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    -moz-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    box-shadow: 2px 2px 2px 2px #8A8A8A;
+    margin: 0 auto;
     min-width: 100px;
     min-height: 50px;
-    background-color: coral;
+    background-color: #CC6633;
+    border-radius: 15px;
+    
+
 }
 
 .button:active {
 
-    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
-    background: #2E5481;
-    border: solid 1px #203E5F;
+    -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.6);
+    background: #009999;
+    border: solid 1px #009900;
     color: white;
 }
 
@@ -20,21 +37,49 @@
     cursor: default;
 }
 
+.pins{
+    
+    out
+    -webkit-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    -moz-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    box-shadow: 2px 2px 2px 2px #8A8A8A;
+    margin: 0 auto;
+    border: 2px solid #009999;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.pins:focus{
+    outline: none;
+    border: 2px solid #CC6633;
+}
+
 .pins:disabled {
     background: #999;
     color: #555;
     cursor: default;
 }
 
+.inputContainer{
+   margin: 0 auto; 
+   width: 710px;
+   height: 200px;
+   text-align: center;
+}
+
 .mainDiv {
+    -webkit-box-shadow: 5px 5px 5px 5px;
+    -moz-box-shadow: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 5px 5px #8A8A8A;
+    margin: 0 auto;
+    border: 2px solid #009999;
+    border-radius: 15px;
     position: relative;
-    top: 150px;
-    left: 150px;
+    top: 100px;
     width: 710px;
     height: 200px;
     text-align: center;
-    border-style: solid;
-    border-width: 1px;
+    background: white;
 }
 
 .mainDiv .forOutter {
@@ -45,28 +90,38 @@
 }
 
 .mainDiv .forOutter .outter {
+    -webkit-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    -moz-box-shadow: 2px 2px 2px 2px #8A8A8A;
+    box-shadow: 2px 2px 2px 2px #8A8A8A;
+    border-radius: 5px;
     position: relative;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    border: 1px #CC6633 solid;
     width: 60px;
     height: 60px;
+    animation: myfirst 5s;
+-webkit-animation: myfirst 5s; /* Safari and Chrome */
 
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {margin:200px 200px;}
+to {margin: 0px 0px;}
 }
 
 .mainDiv .forOutter .outter .rightCornerTop {
     position: relative;
     height: 15px;
     width: 29px;
-    background-color: black;
+    background-color: #009999;
     border-top: white;
 }
 
 .mainDiv .forOutter .outter .rightCornerTopWhite {
+    border-radius: 5px;
     position: relative;
     height: 15px;
     width: 29px;
-    background-color: white;
     border-right: black;
 
 }
@@ -76,20 +131,17 @@
     height: 15px;
     width: 29px;
     border-color: white;
-    background-color: black;
+    background-color: #009999;
 }
 
 .mainDiv .forOutter .outter .rightCorner {
+    border-radius: 5px;
     position: relative;
     top: -20px;
     left: 30px;
     height: 30px;
     width: 29px;
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-top: white;
-    border-right: white;
+    border: 1px solid  #CC6633;
     text-align: center;
 }
 
@@ -101,10 +153,10 @@
 }
 
 .mainDiv .forOutter .outter .totalScoreContainer {
+    border-radius: 5px;
     position: relative;
     top: 1px;
     height: 28px;
     width: 60px;
-    background-color: white;
     text-align: center;
 }
